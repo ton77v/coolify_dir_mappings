@@ -1,0 +1,52 @@
+venv/
+.venv/
+
+.git/
+.gitignore
+.dockerignore
+Dockerfile
+README.md
+node_modules/
+npm-debug.log
+dist/
+*.md
+
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+tests/
+docs/
+build/
+pytest-cache-files-*
+
+# MONGO DATA
+data_mongo/
+
+# REDIS DATA
+data_redis/
+
+# POSTGRES DATA
+pg_data
+
+# DBs IN GENERAL
+db_dump
+
+# VAGRANT VM SNAPSHOTS
+.vagrant/
+
+# Cypress
+cypress/videos
+cypress/downloads
+cypress/screenshots
+
+# let's encrypt certificates
+letsencrypt
+
+# temp stuff
+tmp/
+
+# environment files | project-specific, sometimes they are required
+#.env
+#.env.*

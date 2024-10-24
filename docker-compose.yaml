@@ -1,0 +1,35 @@
+services:
+
+  git-sync:
+    container_name: git-sync
+    image: alpine:latest
+    volumes:
+      - type: bind
+        source: ./init-scripts
+        target: /_repo/ror-demo-cluster/init-scripts
+        # noinspection ComposeUnknownKeys
+        is_directory: true  # Coolify-specific
+    # noinspection ComposeUnknownKeys
+    exclude_from_hc: true  # Coolify-specific: exclude from HealthCheck
+    command: >
+      sh -c "apk add --no-cache git &&
+      rm -rf /tmp/repo &&
+      git clone https://github.com/lerna/getting-started-example.git /tmp/repo &&
+      echo "repo cloned!"
+
+#  initializer:
+#    container_name: initializer
+#    build:
+#      context: https://github.com/beshu-tech/ror-sandbox.git#master:ror-demo-cluster
+#      dockerfile: images/cluster-initializer/Dockerfile
+#    depends_on:
+#      git-sync:
+#        condition: service_completed_successfully
+#    healthcheck:
+#      test: "test -f /tmp/init_done || exit 1"
+#      interval: 10s
+#      timeout: 10s
+#      retries: 30
+#      start_period: 60s
+#    volumes:
+#      - ./init-scripts:/scripts:ro
