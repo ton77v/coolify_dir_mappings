@@ -12,12 +12,11 @@ services:
     # noinspection ComposeUnknownKeys
     exclude_from_hc: true  # Coolify-specific: exclude from HealthCheck
     restart: no
-#    command: >
-#      sh -c "apk add --no-cache git &&
-#      rm -rf /tmp/repo &&
-#      git clone https://github.com/lerna/getting-started-example.git /tmp/repo &&
-#      echo 'repo cloned!'"
-    command: echo "hello world"
+    command: >
+      sh -c "apk add --no-cache git &&
+      rm -rf /tmp/repo &&
+      git clone https://github.com/lerna/getting-started-example.git /tmp/repo &&
+      echo 'repo cloned!'"
 
 #  initializer:
 #    container_name: initializer
